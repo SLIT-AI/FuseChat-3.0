@@ -13,9 +13,9 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 import torch
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--model-path", type=str, default="/llm/FuseAI")
+parser.add_argument("--model-path", type=str, default="FuseAI")
 parser.add_argument("--model-name", type=str, default="FuseChat-Llama-3.1-8B-Instruct")
-parser.add_argument("--title-name", type=str, default="FuseChat-Llama-3.1-8B-Instruct")
+parser.add_argument("--title-name", type=str, default="FuseChat-3.0")
 args = parser.parse_args()
 
 # App title
@@ -49,7 +49,7 @@ def load_model(model_name):
 
 with st.sidebar:
     st.title(f'😶‍🌫️FuseAI {args.title_name}')
-    st.write(f'This chatbot is created using the {args.title_name} model.')
+    st.write(f'This chatbot is created using the {args.model_name} model.')
     temperature = st.sidebar.slider('temperature', min_value=0.01, max_value=1.0, value=0.6, step=0.01)
     top_p = st.sidebar.slider('top_p', min_value=0.1, max_value=1.0, value=0.9, step=0.05)
     top_k = st.sidebar.slider('top_k', min_value=1, max_value=1000, value=1000, step=1)
